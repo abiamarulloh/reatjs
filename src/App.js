@@ -1,12 +1,14 @@
 import React from 'react';
-// import YoutubeComp from "./components/youtubeComp/YoutubeComp"
+import YoutubeComp from "./components/youtubeComp/YoutubeComp"
+import Product from '../src/containers/Product/Product'
+import Home from '../src/containers/BlogPost/BlogPost'
 
 function App() {
   return (
     <div>
-      {/* <h3>Youtube</h3>
-      <hr /> */}
-      {/* <YoutubeComp 
+      <h3>Youtube</h3>
+      <hr />
+      <YoutubeComp 
           title="Berternak Lele" 
           desc="1x ditonton, 12 hari yang lalu" 
           minute="7:12"/>
@@ -18,7 +20,11 @@ function App() {
           title="Berternak Kangkuru" 
           desc="928x ditonton, 20 hari yang lalu" 
           minute="4:42"/>
-      <YoutubeComp /> */}
+      <YoutubeComp />
+
+      <Product />
+
+      <Home />
     </div>
   );
 }

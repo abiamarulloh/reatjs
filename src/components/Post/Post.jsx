@@ -9,8 +9,10 @@ export default function Post(props) {
                     <img src="https://placeimg.com/190/200/tech" alt="dummy"/>
                 </div>
                 <div className="content">
-                    <p className="title">{props.title}</p>
-                    <p className="body">{props.body}</p>
+                    <p className="title">{props.data.title}</p>
+                    <p className="body">{props.data.body}</p>
+                    <button className="remove" onClick={() => props.remove(props.data.id)}>Remove</button>
+                    <button className="update" onClick={() => props.update(props.data)}>update</button>
                 </div>
             </div>
         </div>
