@@ -1,0 +1,36 @@
+.wrap_thumb {
+    width: 200px;
+    height: auto;
+    margin: 20px;
+    float: left;
+}
+
+.img_thumb img {
+    width: 200px;
+    height: 150px;
+}
+
+.img_thumb {
+    width: 200px;
+    height: 150px;
+    position: relative;
+}
+
+.img_thumb .minute_thumb {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+.title_thumb {
+    margin: 10px 0px  0px 0px;
+}
+
+.desc_thumb {
+    margin: 10px 0px  0px 0px;
+    color: rgb(141, 141, 141);
+}
