@@ -3,7 +3,7 @@ import './YoutubeComp.css'
 
 const YoutubeComp = (props) => {
     return(
-        <div class="wrap_thumb">
+        <div className="wrap_thumb">
             <div className="img_thumb">
                 {/* eslint-disable-next-line */}
                 <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"/>

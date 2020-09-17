@@ -67,3 +67,12 @@ content p.desc {
     color: white;
     border: 0;
 }
+
+.detail {
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    background-color: rgb(76, 233, 160);
+    color: white;
+    border: 0;
+}

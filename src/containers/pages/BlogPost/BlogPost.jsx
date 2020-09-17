@@ -1,7 +1,7 @@
 import React, {Fragment, Component} from 'react'
-import Post from '../../components/Post/Post'
-import axios from 'axios'
+import Post from '../../../components/Post/Post'
 import './BlogPost.css'
+import API from '../../../service'
 
 class BlogPost extends Component {
     state = {
@@ -16,16 +16,13 @@ class BlogPost extends Component {
     }
 
     getPostAPI = () => {
-        axios.get("http://localhost:3004/posts?_sort=id&_order=desc")
-        .then(res => {
-            const posts = res.data
+        API.getBlog().then(posts => {
             this.setState({posts})
         })
     }
 
     handleRemove = (data) => {
-        axios.delete(`http://localhost:3004/posts/${data}`)
-        .then(res => {
+        API.deleteBlog(data).then(res => {
             this.getPostAPI()
         })
     }
@@ -44,6 +41,7 @@ class BlogPost extends Component {
         if(!this.state.isUpdate) {
             formBlogPost["id"] = timestamp
         }
+
         formBlogPost[event.target.name] = event.target.value
         this.setState({
             formBlogPost
@@ -52,13 +50,14 @@ class BlogPost extends Component {
     }
 
     postDataToAPI = () => {
-        axios.post("http://localhost:3004/posts", this.state.formBlogPost)
-        .then(this.getPostAPI())
+        const data = this.state.formBlogPost
+        API.postBlog(data).then(() => {this.getPostAPI()})
     }
 
     putDataToAPI = () => {
-        axios.put('http://localhost:3004/posts/' + this.state.formBlogPost.id, this.state.formBlogPost)
-        .then(this.getPostAPI())
+        const blogId = this.state.formBlogPost.id
+        const blog = this.state.formBlogPost
+        API.putBlog(blogId, blog).then(() => {this.getPostAPI()})
     }
 
     handleEmptyForm = () => {
@@ -77,6 +76,10 @@ class BlogPost extends Component {
             this.postDataToAPI()
         }
         this.handleEmptyForm()
+    }
+
+    handleDetail = (id) => {
+        this.props.history.push(`detail-post/${id}`)
     }
 
     componentDidMount(){
@@ -102,7 +105,8 @@ class BlogPost extends Component {
                     key={post.id}
                     data={post}
                     remove={this.handleRemove}
-                    update={this.handleUpdate}/>
+                    update={this.handleUpdate}
+                    detail={this.handleDetail}/>
                 )}
             </Fragment>
         )

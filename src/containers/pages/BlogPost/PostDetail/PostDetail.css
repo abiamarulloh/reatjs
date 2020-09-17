@@ -1,0 +1,10 @@
+.wrap {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    margin: auto;
+    background-color: rgb(218, 218, 218);
+    color: rgb(34, 34, 34);
+    margin-top: 100px;
+    text-align: center;
+}

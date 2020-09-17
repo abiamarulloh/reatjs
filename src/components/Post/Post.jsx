@@ -13,6 +13,7 @@ export default function Post(props) {
                     <p className="body">{props.data.body}</p>
                     <button className="remove" onClick={() => props.remove(props.data.id)}>Remove</button>
                     <button className="update" onClick={() => props.update(props.data)}>update</button>
+                    <button className="detail" onClick={() => props.detail(props.data.id)}>Detail</button>
                 </div>
             </div>
         </div>
